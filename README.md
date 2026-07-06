@@ -20,6 +20,10 @@ python -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+## Live demo
+
+https://krapcys1-maker.github.io/invoice-excel-validator-demo/
+
 ## What it demonstrates
 
 - document intelligence workflow,
