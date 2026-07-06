@@ -11,19 +11,25 @@
     <section class="hero">
       <p class="kicker">DOCUMENT AUTOMATION DEMO</p>
       <h1>Invoice PDF → Excel Validator</h1>
-      <p>Synthetic finance automation demo: extract fields, validate totals and generate Excel-style output.</p>
+      <p>Synthetic finance automation tool: parse invoice text, validate totals and generate Excel-style output.</p>
+      <textarea id="invoiceInput" class="tool-input" aria-label="Invoice text input">Invoice No: INV-0248
+Date: 2026-07-06
+Customer: Demo Customer Alpha
+Net: EUR 1240.00
+VAT: EUR 235.60
+Total: EUR 1475.60</textarea>
       <button id="runBtn">Run demo</button>
     </section>
 
     <section class="machine" id="machine">
       <div class="panel document" data-step="1">
         <span class="label">sample_invoice_0248.pdf</span>
-        <div class="field"><span>Invoice No</span><strong>INV-0248</strong></div>
-        <div class="field"><span>Date</span><strong>2026-07-06</strong></div>
-        <div class="field"><span>Customer</span><strong>Demo Customer Alpha</strong></div>
-        <div class="field"><span>Net</span><strong>€1,240.00</strong></div>
-        <div class="field"><span>VAT</span><strong>€235.60</strong></div>
-        <div class="field"><span>Total</span><strong>€1,475.60</strong></div>
+        <div class="field"><span>Invoice No</span><strong data-field="invoiceNo">INV-0248</strong></div>
+        <div class="field"><span>Date</span><strong data-field="date">2026-07-06</strong></div>
+        <div class="field"><span>Customer</span><strong data-field="customer">Demo Customer Alpha</strong></div>
+        <div class="field"><span>Net</span><strong data-field="net">€1,240.00</strong></div>
+        <div class="field"><span>VAT</span><strong data-field="vat">€235.60</strong></div>
+        <div class="field"><span>Total</span><strong data-field="total">€1,475.60</strong></div>
       </div>
 
       <div class="pipeline" data-step="2">
@@ -31,17 +37,17 @@
       </div>
 
       <div class="panel checks" data-step="3">
-        <p>✓ VAT calculation: OK</p>
-        <p>✓ Total match: OK</p>
-        <p>✓ Duplicate invoice: No duplicate</p>
-        <p class="warn">! Missing PO number: Review</p>
+        <p data-check="vat">✓ VAT calculation: OK</p>
+        <p data-check="total">✓ Total match: OK</p>
+        <p data-check="duplicate">✓ Duplicate invoice: No duplicate</p>
+        <p class="warn" data-check="po">! Missing PO number: Review</p>
       </div>
 
       <div class="panel output" data-step="4">
         <span class="label">xlsx preview</span>
         <table>
           <tr><th>Invoice</th><th>Net</th><th>VAT</th><th>Status</th></tr>
-          <tr><td>INV-0248</td><td>€1,240</td><td>€235.60</td><td>Review</td></tr>
+          <tr><td data-output="invoiceNo">INV-0248</td><td data-output="net">€1,240</td><td data-output="vat">€235.60</td><td data-output="status">Review</td></tr>
         </table>
       </div>
     </section>

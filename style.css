@@ -32,6 +32,19 @@ button {
   font-weight: 700;
   cursor: pointer;
 }
+.tool-input {
+  display: block;
+  width: min(680px, 100%);
+  min-height: 150px;
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  color: var(--text);
+  background: rgba(255,255,255,.04);
+  font: 600 13px/1.6 Consolas, monospace;
+  resize: vertical;
+}
 .machine {
   display: grid;
   grid-template-columns: .85fr 1fr;
