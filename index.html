@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Excel Validator Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="kicker">DOCUMENT AUTOMATION DEMO</p>
+      <h1>Invoice PDF → Excel Validator</h1>
+      <p>Synthetic finance automation demo: extract fields, validate totals and generate Excel-style output.</p>
+      <button id="runBtn">Run demo</button>
+    </section>
+
+    <section class="machine" id="machine">
+      <div class="panel document" data-step="1">
+        <span class="label">sample_invoice_0248.pdf</span>
+        <div class="field"><span>Invoice No</span><strong>INV-0248</strong></div>
+        <div class="field"><span>Date</span><strong>2026-07-06</strong></div>
+        <div class="field"><span>Customer</span><strong>Demo Customer Alpha</strong></div>
+        <div class="field"><span>Net</span><strong>€1,240.00</strong></div>
+        <div class="field"><span>VAT</span><strong>€235.60</strong></div>
+        <div class="field"><span>Total</span><strong>€1,475.60</strong></div>
+      </div>
+
+      <div class="pipeline" data-step="2">
+        <span>extract</span><i></i><span>normalize</span><i></i><span>validate</span><i></i><span>export</span>
+      </div>
+
+      <div class="panel checks" data-step="3">
+        <p>✓ VAT calculation: OK</p>
+        <p>✓ Total match: OK</p>
+        <p>✓ Duplicate invoice: No duplicate</p>
+        <p class="warn">! Missing PO number: Review</p>
+      </div>
+
+      <div class="panel output" data-step="4">
+        <span class="label">xlsx preview</span>
+        <table>
+          <tr><th>Invoice</th><th>Net</th><th>VAT</th><th>Status</th></tr>
+          <tr><td>INV-0248</td><td>€1,240</td><td>€235.60</td><td>Review</td></tr>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
